@@ -16,9 +16,15 @@ Bot.on('message', function(message){
         console.log("Command TEST sent")
     }
 });
-
-Bot.on('ready',function(){
-    console.log("Ready");
-})
+  
+Bot.on('ready', () => {
+    console.log(`Logged in as ${Bot.user.tag}!`);
+  });
+  
+  Bot.on('message', msg => {
+    if (msg.content === 't!ping') {
+      msg.reply('Pong!');
+    }
+  });
 
 Bot.login(Key)
