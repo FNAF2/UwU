@@ -1,10 +1,6 @@
 const Commando = require('discord.js-commando');
-const Bot = new Commando.Client({
-    commandPrefix: 't!'
-    });
+const Bot = new Commando.Client();
 const Key = 'NTIwMzc0NjMwNDQ4NDk2NjQw.Dus_bQ.QZk9UFwA6w07-299NPBZ069rQw0'
-
-bot.user.setPresence({ status: 'online', game: { name: 'type t!help' } });
 
 Bot.registry.registerGroup('simple', 'Simple');
 Bot.registry.registerDefaults();

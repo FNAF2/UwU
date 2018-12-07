@@ -5,9 +5,9 @@ class DiceRollCommand extends Commando.Command
     constructor(client)
     {
         super(client,{
-            name: 'flip',
+            name: 'roll',
             group: 'simple',
-            memberName: 'flip',
+            memberName: 'coll',
             description: 'Flips a coin, landing on either heads or tails    '
         });
     }
