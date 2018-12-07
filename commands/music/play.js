@@ -1,6 +1,8 @@
 const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
+const ffmpeg = require('ffmpeg');
+const opusscript = require('opusscript');
 
 function Play(connection, message)
 {
