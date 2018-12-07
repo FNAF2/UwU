@@ -1,5 +1,7 @@
 const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
+const YTDL = require('ytdl-core');
+
 const Bot = new Commando.Client({
     commandPrefix: 't!'
     });
@@ -12,6 +14,8 @@ Bot.registry.registerGroup('util', 'Utility');
 Bot.registry.registerGroup('com', 'Commands');
 Bot.registry.registerDefaults();
 Bot.registry.registerCommandsIn(__dirname + "/commands");
+
+global.servers = {};
 
 Bot.on('message', function(message){
     if(message.content == 't!test')

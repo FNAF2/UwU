@@ -1,5 +1,6 @@
 const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
+const YTDL = require('ytdl-core');
 
 class DiceRollCommand extends Commando.Command
 {
