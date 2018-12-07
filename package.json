@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/springyggg/uwu/issues"
   },
-  "homepage": "https://github.com/springyggg/uwu#readme"
+  "homepage": "https://github.com/springyggg/uwu#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "ffmpeg-binaries": "^4.0.0",
+    "opusscript": "0.0.6"
+  }
 }

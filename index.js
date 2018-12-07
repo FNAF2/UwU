@@ -5,7 +5,8 @@ const Bot = new Commando.Client({
 const Key = 'NTIwMzc0NjMwNDQ4NDk2NjQw.Dus_bQ.QZk9UFwA6w07-299NPBZ069rQw0'
 
 
-Bot.registry.registerGroup('simple', 'Simple');
+Bot.registry.registerGroup('simple', 'Fun & Games');
+Bot.registry.registerGroup('music', 'Music & Audio');
 Bot.registry.registerDefaults();
 Bot.registry.registerCommandsIn(__dirname + "/commands");
 
