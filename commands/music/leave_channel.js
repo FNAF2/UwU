@@ -1,4 +1,5 @@
 const Commando = require('discord.js-commando');
+const Discord = require('discord.js');
 
 class LeaveChannelCommand extends Commando.Command
 {
@@ -14,15 +15,20 @@ class LeaveChannelCommand extends Commando.Command
 
     async run(message, args)
     {
+        if(!message.member.voiceChannel)
+        message.reply("You are not in the voice channel with me."); 
+
+        if(!message.guild.voiceConnection)
+        message.reply("I am not connected to any voice channels.");
+
         if(message.guild.voiceConnection)
+        if(message.member.voiceChannel)
         {
             message.guild.voiceConnection.disconnect();
-            
+            message.reply("Disconnected from the voice channel.");
         }
-        else
-        {
-            message.reply("I am not connected to any voice channels.");
-        }
+        
+               
     }
 }
 
