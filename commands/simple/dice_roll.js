@@ -7,20 +7,15 @@ class DiceRollCommand extends Commando.Command
         super(client,{
             name: 'roll',
             group: 'simple',
-            memberName: 'coll',
-            description: 'Flips a coin, landing on either heads or tails    '
+            memberName: 'roll',
+            description: 'Rolls a six sided dice'
         });
     }
 
     async run(message, args)
     {
-        var chance = Math.floor(Math.random() * 2);
-        if(chance == 0){
-            message.reply("Your coin landed on Heads!");
-        }
-        else{
-            message.reply("Your coin landed on Tails!");
-        }
+        var diceRoll = Math.floor(Math.random() * 6) + 1;
+        message.reply("Your dice landed on " + diceRoll);
     }
 }
 
