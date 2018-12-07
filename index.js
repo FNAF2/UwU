@@ -5,7 +5,7 @@ const Key = 'NTIwMzc0NjMwNDQ4NDk2NjQw.Dus_bQ.QZk9UFwA6w07-299NPBZ069rQw0'
 Bot.on('message', function(message){
     if(message.content == 't!test')
     {
-        message.channel.sendMessage('Testing Connection' + message.author);
+        message.channel.sendMessage('Testing Connection ' + message.author);
         console.log("Command TEST sent")
     }
 });
