@@ -2,15 +2,32 @@ const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
 const YTDL = require('ytdl-core');
 
-class JoinCommand extends Commando.Command
+function Play(connection, message)
+{
+    var server = servers[message.guild.id]
+    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}))
+    server.queue.shift();
+    server.dispatcher.on("end", function(){
+        if(server.queue[0])
+        {
+            Play(connection,message)
+        }
+        else{
+            connection.disconnect
+        }
+    });
+
+}
+
+class PlayCommand extends Commando.Command
 {
     constructor(client)
     {
         super(client,{
-            name: 'join',
+            name: 'play',
             group: 'music',
-            memberName: 'join',
-            description: 'Makes the bot join the voice channel you are in.'
+            memberName: 'play',
+            description: 'Adds a song to the queue then makes the bot join the voice channel you are in, if not already in it.'
         });
     }
 
@@ -27,6 +44,9 @@ class JoinCommand extends Commando.Command
                 message.member.voiceChannel.join()
                     .then(connection => {
                         message.reply("Successfully connected to the voice channel.");
+                        var server = servers[message.guild.id]
+                        server.queue.push(args);
+                        Play(connection, message);
                     })
             }
         }
@@ -34,7 +54,8 @@ class JoinCommand extends Commando.Command
         {
             message.reply("You are not in a voice channel.");
         }
+        
     }
 }
 
-module.exports = JoinCommand;
+module.exports = PlayCommand;
